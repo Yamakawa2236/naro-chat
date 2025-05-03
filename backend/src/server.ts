@@ -23,7 +23,10 @@ app.use((req, res) => {
 
 app.use(errorHandler);
 
+export default app;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server listening on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+      console.log(`🚀 [Development] Server listening on http://localhost:${PORT}`);
+    });
+  }
