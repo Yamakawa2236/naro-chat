@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "main": "dist/index.js",
     "scripts": {
-        "build": "tsc && tsc-alias",
+        "build": "tsc && tsc-alias --verbose",
         "start": "node dist/index.js",
         "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only api/index.ts"
     },
