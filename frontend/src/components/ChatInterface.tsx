@@ -54,7 +54,7 @@ const ChatInterface: React.FC = () => {
         console.error('API Error Data:', error.response.data);
 
         if (error.response.status === 503 && error.response.data?.error === 'MODEL_NOT_READY') {
-          errorMessageText = 'AIモデルが準備できていません。約1分後に再度お試しください。';
+          errorMessageText = 'AIモデルが準備できていません。しばらく待って、再度お試しください。';
         } else if (error.response.data?.message) {
            errorMessageText = `エラー: ${error.response.data.message}`;
         } else {
