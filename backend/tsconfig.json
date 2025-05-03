@@ -4,7 +4,7 @@
       "module": "NodeNext",
       "moduleResolution": "NodeNext",
       "outDir": "./dist",
-      "rootDir": "./src",
+      "rootDir": "./api",
       "lib": ["ESNext"],
       "baseUrl": "./",
   
@@ -19,17 +19,17 @@
       "sourceMap": true,
   
       "paths": {
-        "@config/*": ["src/config/*"],
-        "@controllers/*": ["src/controllers/*"],
-        "@middleware/*": ["src/middleware/*"],
-        "@models/*": ["src/models/*"],
-        "@routes/*": ["src/routes/*"],
-        "@services/*": ["src/services/*"],
-        "@utils/*": ["src/utils/*"] 
+        "@config/*": ["api/config/*"],
+        "@controllers/*": ["api/controllers/*"],
+        "@middleware/*": ["api/middleware/*"],
+        "@models/*": ["api/models/*"],
+        "@routes/*": ["api/routes/*"],
+        "@services/*": ["api/services/*"],
+        "@utils/*": ["api/utils/*"] 
       }
     },
     "include": [
-      "src/**/*"
+      "api/**/*"
     ],
     "exclude": [
       "node_modules",
