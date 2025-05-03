@@ -48,11 +48,20 @@ const ChatInterface: React.FC = () => {
     } catch (error) {
       console.error('Failed to get response:', error);
 
-      let errorMessageText = 'Sorry, an error occurred. Please try again.';
-      if (axios.isAxiosError(error)) {
-        errorMessageText = `Error: ${error.response?.data?.error || error.message || 'Network Error'}`;
+      let errorMessageText = '申し訳ありません、エラーが発生しました。もう一度お試しください。';
+      if (axios.isAxiosError(error) && error.response) {
+        console.error('API Error Status:', error.response.status);
+        console.error('API Error Data:', error.response.data);
+
+        if (error.response.status === 503 && error.response.data?.error === 'MODEL_NOT_READY') {
+          errorMessageText = 'AIモデルが準備できていません。約1分後に再度お試しください。';
+        } else if (error.response.data?.message) {
+           errorMessageText = `エラー: ${error.response.data.message}`;
+        } else {
+           errorMessageText = `サーバーエラーが発生しました (コード: ${error.response.status})。`;
+        }
       } else if (error instanceof Error) {
-        errorMessageText = `Error: ${error.message}`;
+        errorMessageText = `通信エラーが発生しました: ${error.message}`;
       }
 
       const errorBotMessage: Message = {

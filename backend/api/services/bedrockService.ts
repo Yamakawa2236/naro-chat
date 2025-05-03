@@ -1,6 +1,13 @@
 import { InvokeModelCommand } from '@aws-sdk/client-bedrock-runtime';
 import { bedrockClient, bedrockModelId } from '../config/awsConfig';
 
+export class ModelNotReadyError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ModelNotReadyError';
+  }
+}
+
 interface BedrockResponseBody {
     generation?: string;
     completion?: string;
@@ -73,6 +80,10 @@ export const bedrockService = {
       if (error instanceof Error) {
         console.error('Error Name:', error.name);
         console.error('Error Message:', error.message);
+        if (error.name === 'ModelNotReadyException') {
+          throw new ModelNotReadyError('Model is not ready for inference. Wait and try your request again.');
+        }
+
         if ((error as any).$metadata) {
           console.error('Error Metadata:', JSON.stringify((error as any).$metadata, null, 2));
         }
