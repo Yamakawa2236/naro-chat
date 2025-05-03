@@ -1,6 +1,6 @@
 // src/controllers/chatController.ts
 import { Request, Response, NextFunction } from 'express';
-import { bedrockService } from '@services/bedrockService';
+import { bedrockService } from '../services/bedrockService';
 
 export const chatController = {
   async processChat(req: Request, res: Response, next: NextFunction): Promise<void> {

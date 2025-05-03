@@ -1,8 +1,8 @@
 import express from 'express';
-import { serverConfig } from '@config/serverConfig';
-import { corsMiddleware } from '@middleware/corsMiddleware';
-import { errorHandler } from '@middleware/errorHandler';
-import { chatRoutes } from '@routes/chatRoutes';
+import { serverConfig } from './config/serverConfig';
+import { corsMiddleware } from './middleware/corsMiddleware';
+import { errorHandler } from './middleware/errorHandler';
+import { chatRoutes } from './routes/chatRoutes';
 
 const app = express();
 const PORT = serverConfig.port;

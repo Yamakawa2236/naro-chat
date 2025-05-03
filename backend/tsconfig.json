@@ -18,15 +18,6 @@
       "forceConsistentCasingInFileNames": true,
       "sourceMap": true,
   
-      "paths": {
-        "@config/*": ["api/config/*"],
-        "@controllers/*": ["api/controllers/*"],
-        "@middleware/*": ["api/middleware/*"],
-        "@models/*": ["api/models/*"],
-        "@routes/*": ["api/routes/*"],
-        "@services/*": ["api/services/*"],
-        "@utils/*": ["api/utils/*"] 
-      }
     },
     "include": [
       "api/**/*"

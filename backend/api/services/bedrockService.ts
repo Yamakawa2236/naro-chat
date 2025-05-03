@@ -1,5 +1,5 @@
 import { InvokeModelCommand } from '@aws-sdk/client-bedrock-runtime';
-import { bedrockClient, bedrockModelId } from '@config/awsConfig';
+import { bedrockClient, bedrockModelId } from '../config/awsConfig';
 
 interface BedrockResponseBody {
     generation?: string;
