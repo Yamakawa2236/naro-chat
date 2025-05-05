@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const awsRegion = process.env.AWS_REGION;
+export const awsRegion = process.env.AWS_REGION;
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 export const bedrockModelId = process.env.BEDROCK_MODEL_ID;
@@ -18,15 +18,15 @@ if (!bedrockModelId) {
     throw new Error('BEDROCK_MODEL_ID environment variable is required.');
 }
 
-const credentialsConfig = (accessKeyId && secretAccessKey)
+export const credentialsConfig = (accessKeyId && secretAccessKey)
   ? { accessKeyId, secretAccessKey }
   : undefined;
 
 
-export const bedrockClient = new BedrockRuntimeClient({
-  region: awsRegion || 'us-east-1',
-  credentials: credentialsConfig,
-});
+// export const bedrockClient = new BedrockRuntimeClient({
+//   region: awsRegion || 'us-east-1',
+//   credentials: credentialsConfig,
+// });
 
 console.log(`AWS Bedrock Client configured for region: ${awsRegion || 'us-east-1'}`);
 if (credentialsConfig) {
